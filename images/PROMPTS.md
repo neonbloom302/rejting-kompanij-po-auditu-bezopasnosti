@@ -1,59 +1,77 @@
 # Промпты для изображений
 
-Сейчас на сайте стоят обложки из присланных листов: «Что такое аудит», «Виды», «Как провести» и «Как выбрать» взяты из `_source/design/covers-sheet-2.jpg` и перекрашены в палитру сайта скриптом `_tools/adapt2.mjs`; «Стоимость» и картинка для соцсетей взяты из `covers-sheet-2x.png` (`_tools/enhance.mjs`). Если хотите заменить их фото или 3D-иллюстрациями, сгенерируйте картинку по промпту и сохраните её под тем же именем в формате JPG.
+## Как генерировать
 
-Общий стиль для всех картинок: светлая редакционная фотография или 3D-иллюстрация, чистый светло-серый фон `#F3F3F5`, акценты оранжевым `#F2541B` и фиолетовым `#6A4DFF`, мягкий рассеянный свет, много воздуха. Без текста, логотипов, водяных знаков и узнаваемых лиц; экраны без читаемых надписей.
+- **Каждую картинку отдельно**, не листом: в листе каждая панель получает мало пикселей.
+- **Размер:** 2400×960 (5:2). Если генератор не даёт 5:2, берите максимальный 16:9 или 21:9. Главный объект держите в центральной полосе высотой 60%: верх и низ я обрежу.
+- **Формат:** PNG или JPG максимального качества, без сжатия и без апскейла внутри генератора.
+- **Без водяных знаков**, без текста, без букв и логотипов на щитах.
+- Готовый файл пришлите мне, я поставлю его на место и подгоню кадр.
 
-Negative prompt (для всех): `text, letters, logo, watermark, brand names, readable UI text, dark theme, neon, hacker in hoodie, matrix code, skulls, padlock clichés, distorted hands, extra fingers`
+## Общий стиль (добавляйте в конец каждого промпта)
+
+```
+Soft-lit 3D render, glassmorphism, frosted translucent glass and glossy spheres, clean light studio background in neutral cool grey #F3F3F5 with a faint warm-to-cool haze, accent colours strictly #F2541B (orange), #C33F8E (magenta), #6A4DFF (violet), soft bloom on light sources, gentle reflections on a glossy floor, shallow depth of field, high detail, sharp focus, minimalist premium tech aesthetic, no text, no letters, no logos, no watermark, 5:2 aspect ratio, 2400x960
+```
+
+Negative prompt: `text, letters, numbers, logo, letter V, watermark, signature, UI, dark background, neon cyberpunk, pink pastel background, blur, low resolution, jpeg artifacts, noise, distorted, cropped subject`
+
+Щит на всех картинках **без буквы**, в духе логотипа сайта: круг, внутри две гладкие белые дуги. В промптах это `shield emblem made of two smooth white arcs, no letters`.
 
 ---
 
-## 1. covers/chto-takoe-audit.jpg · 1200×480 (5:2)
+## 1. covers/chto-takoe-audit.jpg — Что такое аудит ИБ
 
+**Смысл:** пять групп объектов проверки (периметр, сеть, приложения, процессы, сотрудники) сопоставляются с критерием через независимую оценку.
 **Alt:** Специалист по информационной безопасности проверяет схему ИТ-инфраструктуры компании
 
 ```
-Editorial wide photo, a security specialist in a light modern office reviewing an abstract IT infrastructure diagram on a large monitor, nodes and connection lines in orange and violet, soft daylight, shallow depth of field, light grey background, calm analytical mood, 5:2 aspect ratio, high detail
+Five glossy spheres of different sizes on the left (orange and magenta), thin glowing threads converge from them into a large frosted glass lens ring in the centre with a soft magenta core, dashed light threads continue from the lens to four violet spheres on the right, composition centred horizontally, lots of empty space
 ```
 
-## 2. covers/vidy-audita.jpg · 1200×480 (5:2)
+## 2. covers/vidy-audita.jpg — Виды аудита
 
+**Смысл:** виды различаются глубиной: инструментальный неглубоко, пентест глубже, Red Teaming до самого дна.
 **Alt:** Сравнение видов аудита безопасности: сканирование, тестирование на проникновение и организационная проверка
 
 ```
-Minimal 3D illustration, three floating translucent panels side by side on a light grey background: a radar-like scan pattern, a layered network with one highlighted path, a stack of documents with checkmarks; orange-to-violet gradient accents, soft shadows, isometric view, clean composition, 5:2 aspect ratio
+Six stacked horizontal frosted glass layers in perspective, three thin vertical light probes descend from the top to different depths: an orange sphere stops at the 2nd layer, a magenta sphere at the 4th, a violet sphere reaches the bottom layer, clean symmetrical composition, centred
 ```
 
-## 3. covers/kak-provesti-audit.jpg · 1200×480 (5:2)
+## 3. covers/kak-provesti-audit.jpg — Как провести аудит
 
+**Смысл:** 5 этапов по порядку внутри согласованных границ; после отчёта петля ретеста.
 **Alt:** Команда аудиторов обсуждает план проверки и границы тестирования на проникновение
 
 ```
-Editorial wide photo, three professionals at a white meeting table discussing a project plan, a laptop and printed timeline with five colored stages, sticky notes in orange and violet, bright Scandinavian office, natural light, faces turned away or out of focus, 5:2 aspect ratio
+Five glossy spheres connected by a smooth glowing gradient line rising gently from left to right, colours progress orange → magenta → violet, all inside a large frosted glass rounded rectangle frame, a thin dashed light loop returns from the last violet sphere back toward the fourth sphere, centred composition
 ```
 
-## 4. covers/kak-vybrat-kompaniyu.jpg · 1200×480 (5:2)
+## 4. covers/kak-vybrat-kompaniyu.jpg — Как выбрать компанию
 
+**Смысл:** поток подрядчиков проходит 6 критериев-фильтров, до конца доходит один проверенный.
 **Alt:** Руководитель службы ИБ сравнивает коммерческие предложения подрядчиков по аудиту
 
 ```
-Top-down editorial photo of a light desk, hands comparing two printed proposals side by side with a pen, a checklist with checkmarks, a tablet showing an abstract comparison table, orange and violet stationery accents, soft daylight, minimal, 5:2 aspect ratio
+A dense cloud of tiny orange, magenta and violet particles flows from the left through six vertical frosted glass panels standing in a row, fewer particles pass each panel, on the right the remaining stream converges into a glowing violet sphere with a shield emblem made of two smooth white arcs, no letters, centred composition
 ```
 
-## 5. covers/stoimost-audita.jpg · 1200×480 (5:2)
+## 5. covers/stoimost-audita.jpg — Стоимость аудита
 
+**Смысл:** нижние опубликованные цены по видам работ на логарифмической шкале; Red Teaming в разы дороже остальных.
 **Alt:** Смета на аудит информационной безопасности с перечнем систем и видов работ
 
 ```
-Minimal 3D illustration, an abstract cost estimate document with rows of blank lines and a bar chart where bars fade from orange to violet, a calculator and a small server rack model nearby, light grey background, soft studio lighting, clean isometric composition, 5:2 aspect ratio
+Six vertical glass tubes filled with glowing gradient liquid (orange at the bottom to violet at the top) standing on a glossy floor, five of them similar medium height, the sixth on the right three times taller with a violet glowing sphere on top, each tube topped with a small glowing sphere, soft reflections, centred composition
 ```
 
-## 6. og-cover.jpg · 1200×630 (1.91:1)
+## 6. og-cover.jpg — превью в соцсетях · 2400×1260 (1.91:1)
 
-**Alt:** Рейтинг компаний по аудиту безопасности 2026
+**Alt:** Рейтинг аудиторов ИБ: аудит безопасности, рейтинг компаний 2026
+Левые 55% кадра оставьте пустыми: туда я добавлю название и заголовок.
 
 ```
-Clean abstract hero image for a security audit ranking website, a round shield emblem made of two white arcs on an orange-to-violet gradient circle, floating above a light grey surface with subtle dashboard cards and a bar chart, soft shadows, lots of empty space on the left for a headline, 1.91:1 aspect ratio
+On the right side: eight equal glossy spheres (orange, magenta, violet) arranged evenly on a thin dashed light ring, in the centre of the ring a glowing gradient sphere with a shield emblem made of two smooth white arcs, no letters; left 55% of the frame is empty clean background, 1.91:1 aspect ratio, 2400x1260
 ```
 
 ---
