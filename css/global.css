@@ -262,11 +262,11 @@ table.visually-hidden { display: block; }
 .data-table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 18px; }
 .data-table th, .data-table td { padding: 12px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); color: var(--text-2); }
 .data-table thead th { font-size: 10.5px; line-height: 14px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--surface-2); white-space: nowrap; }
-.data-table tbody th { font-weight: 500; color: var(--text); min-width: 140px; }
+.data-table tbody th { font-weight: 500; color: var(--text); min-width: 150px; }
 .data-table tbody tr:last-child > * { border-bottom: 0; }
 .data-table tbody tr { transition: background-color .15s; }
 .data-table tbody tr:hover { background: #FAFAFC; }
-.data-table th:first-child { min-width: 36px; }
+.data-table td, .data-table th { overflow-wrap: break-word; hyphens: manual; }
 
 /* ---------- FAQ ---------- */
 .faq { border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
