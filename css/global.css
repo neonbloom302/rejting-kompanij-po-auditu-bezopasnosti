@@ -329,8 +329,18 @@ a.promo-card:active { transform: scale(.99); }
 
 /* ---------- Leaderboard ---------- */
 .seg { display: flex; padding: 3px; gap: 2px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--border); margin-bottom: var(--s-3); }
-.seg__item { flex: 1; text-align: center; padding: 5px 4px; border-radius: 8px; font-size: 11px; line-height: 16px; color: var(--muted); white-space: nowrap; }
-.seg__item.is-active { background: var(--surface); color: var(--text); font-weight: 500; box-shadow: var(--shadow-1); }
+.seg__item { flex: 1; text-align: center; padding: 5px 4px; border-radius: 8px; font-size: 11px; line-height: 16px; color: var(--muted); white-space: nowrap; cursor: pointer; user-select: none; transition: background-color .2s var(--ease-out), color .2s var(--ease-out), transform .25s var(--ease-spring); }
+.seg__item:hover { color: var(--text); background: rgba(255, 255, 255, .6); }
+.seg__item:active { transform: scale(.96); }
+.seg__item.is-active, .seg__input:checked + .seg__item { background: var(--surface); color: var(--text); font-weight: 500; box-shadow: var(--shadow-1); }
+.seg__input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.seg__input:focus-visible + .seg__item { box-shadow: var(--focus); }
+/* CSS-only filter: all rows stay in HTML, unmatched ones are hidden */
+.leaderboard:has(#lbf-vendor:checked) .lb li:not([data-group="vendor"]),
+.leaderboard:has(#lbf-service:checked) .lb li:not([data-group="service"]),
+.leaderboard:has(#lbf-consult:checked) .lb li:not([data-group="consult"]) { display: none; }
+.leaderboard:has(.seg__input:checked:not(#lbf-all)) .lb li { animation: lb-in .3s var(--ease-out); }
+@keyframes lb-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 .lb__head { display: flex; justify-content: space-between; padding: 6px 4px; font-size: 10.5px; line-height: 14px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .lb { list-style: none; padding: 0; margin: 0; display: grid; }
 .lb__row { display: flex; align-items: center; gap: 10px; padding: 9px 4px; border-radius: 10px; text-decoration: none; transition: background-color .15s; }
@@ -404,13 +414,24 @@ a.promo-card:active { transform: scale(.99); }
 .scheme__arrow { fill: none; stroke: #B0B0BA; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .pill-tabs { display: inline-flex; gap: 2px; padding: 3px; border-radius: var(--pill); background: var(--surface-2); border: 1px solid var(--border); flex-wrap: wrap; }
 .pill-tabs__item { padding: 4px 10px; border-radius: var(--pill); font-size: 11.5px; line-height: 16px; color: var(--muted); }
-.pill-tabs__item.is-active { background: var(--surface); color: var(--text); font-weight: 500; box-shadow: var(--shadow-1); }
+.pill-tabs__item.is-active, .pill-tabs__input:checked + .pill-tabs__item { background: var(--surface); color: var(--text); font-weight: 500; box-shadow: var(--shadow-1); }
+label.pill-tabs__item { cursor: pointer; user-select: none; transition: background-color .2s var(--ease-out), color .2s var(--ease-out), transform .25s var(--ease-spring); }
+label.pill-tabs__item:hover { color: var(--text); background: rgba(255, 255, 255, .6); }
+label.pill-tabs__item:active { transform: scale(.96); }
+.pill-tabs__input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.pill-tabs__input:focus-visible + .pill-tabs__item { box-shadow: var(--focus); }
+/* market chart switch: one figure per company, CSS-only */
+.mk-chart { display: none; }
+.market-card:has(#mkf-all:checked) .mk-chart[data-set="all"],
+.market-card:has(#mkf-rtm:checked) .mk-chart[data-set="rtm"],
+.market-card:has(#mkf-radcop:checked) .mk-chart[data-set="radcop"],
+.market-card:has(#mkf-seclab:checked) .mk-chart[data-set="seclab"] { display: block; animation: lb-in .3s var(--ease-out); }
 
 /* ---------- Small screens: keep charts and schemes readable ---------- */
 @media (max-width: 767px) {
   .visual { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .visual .chart { min-width: 560px; }
   .visual .scheme { min-width: 640px; }
-  .card__head .pill-tabs { display: none; }
+  .card__head .pill-tabs { width: 100%; justify-content: space-between; }
   .byline__sep:first-of-type { display: none; }
 }
