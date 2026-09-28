@@ -64,7 +64,7 @@ build_page() {
     echo "<link rel=\"alternate\" type=\"text/markdown\" href=\"index.md\">"
     echo '<link rel="preconnect" href="https://fonts.googleapis.com">'
     echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-    echo '<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Manrope:wght@600;700&display=swap" rel="stylesheet">'
+    echo '<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&display=swap" rel="stylesheet">'
     echo "<link rel=\"stylesheet\" href=\"${BASE}css/global.css\">"
     echo "<link rel=\"stylesheet\" href=\"${BASE}css/${CSS}\">"
     echo '<script type="application/ld+json">'
