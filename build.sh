@@ -10,10 +10,12 @@ FOOTER="components/footer.html"
 TMP_DIR="$(mktemp -d)"
 trap 'rm -rf "$TMP_DIR"' EXIT
 
-# build_page OUT TITLE DESCRIPTION PATH OG_TITLE OG_DESC CONTENT ACTIVE_NAV DEPTH CSS
+# build_page OUT TITLE DESCRIPTION PATH OG_TITLE OG_DESC CONTENT ACTIVE_NAV DEPTH CSS [OG_TYPE]
 build_page() {
   local OUT="$1" TITLE="$2" DESC="$3" PAGE_PATH="$4" OG_TITLE="$5" OG_DESC="$6"
-  local CONTENT="$7" ACTIVE_NAV="$8" DEPTH="$9" CSS="${10}"
+  local CONTENT="$7" ACTIVE_NAV="$8" DEPTH="$9" CSS="${10}" OG_TYPE="${11:-article}"
+  local OG_IMAGE="${DOMAIN}/images/og-cover.jpg"
+  local OG_IMAGE_ALT="Рейтинг аудиторов ИБ: аудит безопасности, рейтинг компаний 2026"
   local NAME; NAME="$(basename "$CONTENT" .html)"
   local BASE="" ROOT_HREF="./"
   if [ "$DEPTH" -gt 0 ]; then
@@ -49,14 +51,22 @@ build_page() {
     echo "<meta name=\"description\" content=\"${DESC}\">"
     echo "<link rel=\"canonical\" href=\"${CANONICAL}\">"
     echo '<meta name="robots" content="index, follow">'
-    echo '<meta property="og:type" content="article">'
+    echo "<meta property=\"og:type\" content=\"${OG_TYPE}\">"
     echo '<meta property="og:locale" content="ru_RU">'
     echo '<meta property="og:site_name" content="Рейтинг аудиторов ИБ">'
     echo "<meta property=\"og:title\" content=\"${OG_TITLE}\">"
     echo "<meta property=\"og:description\" content=\"${OG_DESC}\">"
     echo "<meta property=\"og:url\" content=\"${CANONICAL}\">"
-    echo "<meta property=\"og:image\" content=\"${DOMAIN}/images/og-cover.jpg\">"
+    echo "<meta property=\"og:image\" content=\"${OG_IMAGE}\">"
+    echo '<meta property="og:image:type" content="image/jpeg">'
+    echo '<meta property="og:image:width" content="1200">'
+    echo '<meta property="og:image:height" content="630">'
+    echo "<meta property=\"og:image:alt\" content=\"${OG_IMAGE_ALT}\">"
     echo '<meta name="twitter:card" content="summary_large_image">'
+    echo "<meta name=\"twitter:title\" content=\"${OG_TITLE}\">"
+    echo "<meta name=\"twitter:description\" content=\"${OG_DESC}\">"
+    echo "<meta name=\"twitter:image\" content=\"${OG_IMAGE}\">"
+    echo "<meta name=\"twitter:image:alt\" content=\"${OG_IMAGE_ALT}\">"
     echo '<meta name="theme-color" content="#F3F3F5">'
     echo "<link rel=\"icon\" href=\"${BASE}favicon.svg\" type=\"image/svg+xml\">"
     echo "<link rel=\"icon\" href=\"${BASE}favicon.ico\" sizes=\"32x32\">"
@@ -115,7 +125,7 @@ build_page "kak-provesti-audit-informacionnoj-bezopasnosti/index.html" \
   "Проведение аудита информационной безопасности по шагам: подготовка и документы, 5 этапов, сроки, состав отчёта и ретест после устранения уязвимостей." \
   "/kak-provesti-audit-informacionnoj-bezopasnosti/" \
   "Как провести аудит информационной безопасности" \
-  "Подготовка, 5 этапов, сроки, состав отчёта и ретест." \
+  "Подготовка к аудиту ИБ, 5 этапов проведения, сроки, состав отчёта и ретест после устранения уязвимостей." \
   "content/kak-provesti-audit.html" "/kak-provesti-audit-informacionnoj-bezopasnosti/" 1 "article.css"
 
 build_page "kak-vybrat-kompaniyu-dlya-audita/index.html" \
@@ -140,7 +150,7 @@ build_page "metodologiya/index.html" \
   "/metodologiya/" \
   "Методология рейтинга компаний по аудиту безопасности" \
   "6 критериев, 100 баллов, только открытые источники и журнал изменений." \
-  "content/metodologiya.html" "/metodologiya/" 1 "article.css"
+  "content/metodologiya.html" "/metodologiya/" 1 "article.css" "website"
 
 build_page "redakciya/index.html" \
   "Редакция рейтинга аудиторов ИБ: кто проверяет данные" \
@@ -148,7 +158,7 @@ build_page "redakciya/index.html" \
   "/redakciya/" \
   "Редакция рейтинга компаний по аудиту безопасности" \
   "Как редакция собирает и проверяет данные о компаниях рейтинга." \
-  "content/redakciya.html" "/redakciya/" 1 "article.css"
+  "content/redakciya.html" "/redakciya/" 1 "article.css" "website"
 
 build_page "dobavit-kompaniyu/index.html" \
   "Добавить компанию в рейтинг аудиторов ИБ: заявка" \
@@ -156,7 +166,7 @@ build_page "dobavit-kompaniyu/index.html" \
   "/dobavit-kompaniyu/" \
   "Добавить компанию в рейтинг" \
   "Заявка на включение в рейтинг и исправление данных о компании." \
-  "content/dobavit-kompaniyu.html" "/dobavit-kompaniyu/" 1 "article.css"
+  "content/dobavit-kompaniyu.html" "/dobavit-kompaniyu/" 1 "article.css" "website"
 
 build_page "pravovaya-informaciya/index.html" \
   "Правовая информация: данные, условия и cookies" \
@@ -164,7 +174,7 @@ build_page "pravovaya-informaciya/index.html" \
   "/pravovaya-informaciya/" \
   "Правовая информация" \
   "Персональные данные, условия использования, cookies и раскрытие аффилированности." \
-  "content/pravovaya-informaciya.html" "/pravovaya-informaciya/" 1 "article.css"
+  "content/pravovaya-informaciya.html" "/pravovaya-informaciya/" 1 "article.css" "website"
 
 # robots.txt, sitemap.xml
 PATHS="/ /chto-takoe-audit-informacionnoj-bezopasnosti/ /vidy-audita-bezopasnosti/ /kak-provesti-audit-informacionnoj-bezopasnosti/ /kak-vybrat-kompaniyu-dlya-audita/ /stoimost-audita-ib/ /metodologiya/ /redakciya/ /dobavit-kompaniyu/ /pravovaya-informaciya/"
