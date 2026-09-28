@@ -432,6 +432,7 @@ label.pill-tabs__item:active { transform: scale(.96); }
   .visual { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .visual .chart { min-width: 560px; }
   .visual .scheme { min-width: 640px; }
-  .card__head .pill-tabs { width: 100%; justify-content: space-between; }
+  .card__head .pill-tabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; border-radius: 14px; }
+  .card__head .pill-tabs__item { text-align: center; border-radius: 10px; padding: 6px 8px; }
   .byline__sep:first-of-type { display: none; }
 }
