@@ -1,0 +1,91 @@
+/* ==========================================================================
+   ranking.css — home page: dashboard widgets, comparison table, company cards
+   ========================================================================== */
+
+/* Row 1 */
+.balance-card { display: flex; flex-direction: column; gap: var(--s-4); }
+.balance-card .card__head { margin-bottom: 0; }
+.balance-card__body { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--s-4); }
+.balance-card .big-num { white-space: nowrap; }
+.metric-line { display: flex; align-items: center; gap: var(--s-2); margin-top: 6px; flex-wrap: wrap; }
+.btn-row { display: flex; gap: var(--s-2); flex-wrap: wrap; }
+.balance-card__text { font-size: 13.5px; line-height: 21px; color: var(--text-2); padding-top: var(--s-4); border-top: 1px solid var(--border); }
+
+.price-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform .3s var(--ease-spring), box-shadow .3s var(--ease-out); }
+.price-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-2); }
+.price-card:active { transform: scale(.99); }
+.price-card .card__title { margin-bottom: var(--s-3); }
+.spark { width: 100%; flex: 1; min-height: 64px; max-height: 150px; margin-top: var(--s-4); }
+.spark__bar { fill: #FBD3C2; }
+.spark__bar:nth-child(2) { fill: var(--accent-orange); }
+.spark__bar:last-child { fill: var(--accent-violet); opacity: .75; }
+
+/* Row 2 */
+.market-card .card__head { margin-bottom: var(--s-4); }
+.metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-2); }
+@media (min-width: 768px) { .metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.metric { display: flex; flex-direction: column; gap: 4px; padding: 10px 14px; border-radius: var(--radius-sm); background: var(--surface-2); border: 1px solid var(--border); }
+.metric__val { font-family: var(--font-display); font-size: 17px; line-height: 22px; font-weight: 600; letter-spacing: -.01em; }
+.visual--flat { margin-top: var(--s-4); }
+.leaderboard { display: flex; flex-direction: column; }
+
+/* Row 3: comparison table */
+.cmp { margin-top: var(--s-4); }
+.card__title--h2 { font-family: var(--font-display); font-size: 17px; line-height: 22px; font-weight: 700; letter-spacing: -.01em; }
+.cmp__table { min-width: 980px; }
+.cmp__table th:first-child, .cmp__table td:first-child { width: 36px; min-width: 36px; text-align: center; }
+.cmp__table th:nth-child(2) { min-width: 180px; }
+.cmp__table th:nth-child(4), .cmp__table td:nth-child(4) { min-width: 200px; }
+.cmp__table th:nth-child(5), .cmp__table td:nth-child(5) { min-width: 210px; }
+.cmp__table tbody td, .cmp__table tbody th { vertical-align: middle; height: 56px; }
+.cmp__table .num { color: var(--muted); }
+.cmp__company { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 500; color: var(--text); border-radius: 8px; }
+.cmp__company:hover span:last-child { text-decoration: underline; }
+.cmp__sub { display: block; margin-top: 4px; font-size: 11.5px; line-height: 15px; color: var(--muted); }
+.cmp__act { width: 52px; }
+.icon-btn { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); display: grid; place-items: center; color: var(--text); transition: transform .25s var(--ease-spring), background-color .15s; }
+.icon-btn .icon { width: 16px; height: 16px; }
+.icon-btn:hover { background: var(--surface-2); transform: rotate(90deg); }
+.icon-btn:active { transform: scale(.92); }
+.cmp .note { margin-top: var(--s-3); }
+@media (max-width: 767px) {
+  .cmp__table tbody th, .cmp__table thead th:nth-child(2) { position: sticky; left: 0; background: var(--surface); z-index: 1; }
+}
+
+/* Lead text card */
+.lead-card .callout--accent { margin-top: var(--s-5); }
+
+/* Company cards */
+.company-grid { display: grid; gap: var(--s-4); margin-top: var(--s-5) !important; }
+@media (min-width: 768px) { .company-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.company-card {
+  display: flex; flex-direction: column; gap: var(--s-3);
+  padding: var(--s-4); border-radius: var(--radius-sm);
+  background: var(--surface); border: 1px solid var(--border);
+  scroll-margin-top: 88px;
+  transition: box-shadow .3s var(--ease-out);
+}
+.company-card:hover { box-shadow: var(--shadow-2); }
+.company-card:target { box-shadow: 0 0 0 2px rgba(106, 77, 255, .35), var(--shadow-2); }
+.company-card__head { display: flex; align-items: center; gap: var(--s-3); }
+.company-card .ticker { font-size: 10px; line-height: 14px; }
+.company-card__title { font-family: var(--font-display); font-size: 16px; line-height: 21px; font-weight: 700; color: var(--text) !important; letter-spacing: -.01em; }
+.company-card__image { position: relative; overflow: hidden; border-radius: 10px; border: 1px solid var(--border); background: var(--surface-2); }
+.company-card__image img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+.company-card__image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(14, 14, 18, .18), rgba(14, 14, 18, 0) 45%); pointer-events: none; }
+.company-card__facts { display: grid; gap: 6px; padding: 10px 12px; border-radius: 10px; background: var(--surface-2); font-size: 12.5px; line-height: 17px; }
+.company-card__facts div { display: grid; gap: 1px; }
+.company-card__facts dt { color: var(--muted); font-size: 11px; }
+.company-card__facts dd { color: var(--text); font-weight: 500; }
+.company-card p { font-size: 13.5px; line-height: 21px; }
+.company-card__link {
+  margin-top: auto; align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 34px; padding: 0 14px; border-radius: var(--pill);
+  background: var(--surface-2); border: 1px solid var(--border);
+  font-size: 12.5px; font-weight: 500; color: var(--text); text-decoration: none;
+  transition: transform .25s var(--ease-spring), background-color .15s;
+}
+.company-card__link .icon { width: 14px; height: 14px; }
+.company-card__link:hover { background: #EDEDF1; transform: translateY(-1px); }
+.company-card__link:active { transform: scale(.97); }

@@ -1,0 +1,17 @@
+# Internal materials: brief, SEO report, design prompt, open questions
+_source/
+_tools/
+TODO.md
+settings.json
+.claude/
+
+# Dev only
+node_modules/
+temporary screenshots/
+preview.html
+serve.mjs
+screenshot.mjs
+package.json
+package-lock.json
+images/reference*.png
+CLAUDE.md

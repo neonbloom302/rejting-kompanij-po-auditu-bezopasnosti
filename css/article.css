@@ -1,0 +1,46 @@
+/* ==========================================================================
+   article.css — inner pages: cover image, schemes, form, author card
+   ========================================================================== */
+
+.cover { position: relative; overflow: hidden; margin-top: var(--s-4); border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface-2); box-shadow: var(--shadow-1); }
+.cover img { width: 100%; aspect-ratio: 1200 / 480; object-fit: cover; display: block; }
+.cover::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(135deg, rgba(242, 84, 27, .16), rgba(106, 77, 255, .16)); mix-blend-mode: multiply; pointer-events: none; }
+.cover::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(14, 14, 18, .35), rgba(14, 14, 18, 0) 55%); pointer-events: none; }
+
+.visual .scheme { padding: var(--s-4); border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--surface); }
+
+/* Registry check: 4 step cards */
+.steps-mock { display: grid; gap: var(--s-3); grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-top: var(--s-5) !important; }
+.steps-mock__card { display: flex; flex-direction: column; gap: 6px; padding: 14px; border-radius: var(--radius-sm); background: var(--surface-2); border: 1px solid var(--border); }
+.steps-mock__num { font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-orange); font-weight: 600; }
+.steps-mock__title { font-size: 13.5px; font-weight: 600; color: var(--text); }
+.mock { display: block; margin-top: 6px; }
+.mock__field { display: flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; border-radius: var(--pill); background: var(--surface); border: 1px solid var(--border); font-size: 11.5px; color: var(--muted); }
+.mock__field .icon { width: 13px; height: 13px; }
+.mock__row { display: flex; align-items: center; justify-content: space-between; gap: 6px; flex-wrap: wrap; font-size: 11.5px; }
+.mock__label { color: var(--muted); }
+.mock__val { display: inline-flex; align-items: center; gap: 4px; color: var(--pos); font-weight: 500; }
+.mock__val .icon { width: 13px; height: 13px; }
+
+/* Author page */
+.author-card { display: grid; gap: var(--s-5); align-items: start; }
+.author-card > div > * + * { margin-top: var(--s-4); }
+@media (min-width: 768px) { .author-card { grid-template-columns: 160px 1fr; gap: var(--s-8); } }
+
+/* Form */
+.form { display: grid; gap: var(--s-2); max-width: 560px; }
+.form__label { font-size: 12px; font-weight: 500; color: var(--text-2); margin-top: var(--s-3); }
+.form__input { width: 100%; height: 44px; padding: 0 18px; border-radius: var(--pill); background: var(--surface-2); border: 1px solid var(--border); font-size: 14px; transition: border-color .15s, background-color .15s; }
+.form__input:hover { border-color: #D4D4DC; }
+.form__input:focus-visible { background: var(--surface); border-color: var(--accent-violet); box-shadow: var(--focus); border-radius: var(--pill); }
+.form__input--area { height: auto; min-height: 104px; padding: 12px 18px; border-radius: 20px; resize: vertical; }
+.form__input--area:focus-visible { border-radius: 20px; }
+.form__switch { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.form__switch legend { padding: 0; margin-bottom: var(--s-2); }
+.form__switch label { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px; border-radius: var(--pill); background: var(--surface-2); border: 1px solid var(--border); font-size: 13px; cursor: pointer; transition: border-color .15s, background-color .15s; }
+.form__switch label:hover { border-color: #D4D4DC; }
+.form__switch label:has(input:checked) { background: var(--surface); border-color: var(--accent-violet); }
+.form__switch input, .form__check input { accent-color: var(--accent-violet); }
+.form__check { display: flex; gap: 10px; align-items: flex-start; margin: var(--s-4) 0 var(--s-2); font-size: 13px; line-height: 19px; color: var(--text-2); }
+.form__check input { margin-top: 3px; }
+.form__trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }

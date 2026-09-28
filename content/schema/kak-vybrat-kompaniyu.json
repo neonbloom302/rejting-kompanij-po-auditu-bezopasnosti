@@ -1,0 +1,100 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/#org",
+      "name": "Редакция рейтинга",
+      "url": "https://rejting-kompanij-po-auditu-bezopasnosti.com/redakciya/",
+      "logo": "https://rejting-kompanij-po-auditu-bezopasnosti.com/images/logo.svg",
+      "email": "redakciya@rejting-kompanij-po-auditu-bezopasnosti.com"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/#site",
+      "name": "Рейтинг аудиторов ИБ",
+      "url": "https://rejting-kompanij-po-auditu-bezopasnosti.com/",
+      "inLanguage": "ru-RU",
+      "publisher": {
+        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/#org"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-vybrat-kompaniyu-dlya-audita/#webpage",
+      "url": "https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-vybrat-kompaniyu-dlya-audita/",
+      "name": "Как выбрать подрядчика для аудита ИБ: 6 критериев",
+      "description": "Как проверить компанию для аудита ИБ: лицензия ФСТЭК в реестре, публичные исследования, образец отчёта, вопросы подрядчику и признаки формальной проверки.",
+      "inLanguage": "ru-RU",
+      "datePublished": "2026-09-29",
+      "dateModified": "2026-09-29",
+      "isPartOf": {
+        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/#site"
+      }
+    },
+    {
+      "@type": "Article",
+      "headline": "Как выбрать компанию для аудита информационной безопасности",
+      "description": "Как проверить компанию для аудита ИБ: лицензия ФСТЭК в реестре, публичные исследования, образец отчёта, вопросы подрядчику и признаки формальной проверки.",
+      "inLanguage": "ru-RU",
+      "datePublished": "2026-09-29",
+      "dateModified": "2026-09-29",
+      "author": {
+        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/#org"
+      },
+      "publisher": {
+        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/#org"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-vybrat-kompaniyu-dlya-audita/#webpage"
+      },
+      "image": "https://rejting-kompanij-po-auditu-bezopasnosti.com/images/og-cover.jpg"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Рейтинг",
+          "item": "https://rejting-kompanij-po-auditu-bezopasnosti.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Как выбрать компанию",
+          "item": "https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-vybrat-kompaniyu-dlya-audita/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какие лицензии обязательны у компании для аудита ИБ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Главная лицензия для аудита ИБ: лицензия ФСТЭК на ТЗКИ с контролем защищённости в перечне работ. Она даёт право проводить анализ уязвимостей и пентест объектов КИИ как коммерческую услугу. Лицензия ФСБ нужна при работах с шифровальными средствами."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли внешний аудит ИБ, если есть своя служба ИБ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Внешний аудит ИБ нужен даже при своей службе ИБ, так как даёт независимую оценку. Регулятор, инвестор и партнёр принимают внешний результат; внутренний аудит служба ИБ проводит раз в квартал между внешними проверками."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли доверять рейтингам подрядчиков по аудиту ИБ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Рейтингу подрядчиков по аудиту ИБ доверяют, если он публикует критерии, веса и источники данных. Второе условие: рейтинг раскрывает связь с компаниями из списка. Методология этого сайта открыта на странице «Методология»."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+# Рейтинг аудиторов ИБ
+
+> Рейтинг 8 компаний по аудиту информационной безопасности в России по 6 критериям из открытых источников; сайт аффилирован с Paranoid Security, одной из компаний рейтинга, аффилированность раскрыта на всех страницах.
+
+## Страницы
+
+- [Аудит безопасности: рейтинг компаний в России 2026](https://rejting-kompanij-po-auditu-bezopasnosti.com/index.md): сравнение 8 компаний по лицензиям ФСТЭК, видам аудита и публичным исследованиям.
+- [Что такое аудит информационной безопасности](https://rejting-kompanij-po-auditu-bezopasnosti.com/chto-takoe-audit-informacionnoj-bezopasnosti/index.md): объекты и критерии проверки, отличия от пентеста, Red Teaming и аттестации.
+- [Виды аудита безопасности](https://rejting-kompanij-po-auditu-bezopasnosti.com/vidy-audita-bezopasnosti/index.md): внутренний и внешний аудит, инструментальная проверка, пентест, Red Teaming.
+- [Как провести аудит информационной безопасности](https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-provesti-audit-informacionnoj-bezopasnosti/index.md): подготовка, 5 этапов, сроки, отчёт и ретест.
+- [Как выбрать компанию для аудита](https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-vybrat-kompaniyu-dlya-audita/index.md): 6 критериев выбора и проверка лицензии в реестре ФСТЭК.
+- [Стоимость аудита ИБ](https://rejting-kompanij-po-auditu-bezopasnosti.com/stoimost-audita-ib/index.md): опубликованные цены пентеста и факторы стоимости.
+- [Методология рейтинга](https://rejting-kompanij-po-auditu-bezopasnosti.com/metodologiya/index.md): критерии, шкала из 100 баллов, источники и журнал изменений.
+- [Редакция](https://rejting-kompanij-po-auditu-bezopasnosti.com/redakciya/index.md): кто ведёт рейтинг и как проверяются данные.
+- [Добавить компанию в рейтинг](https://rejting-kompanij-po-auditu-bezopasnosti.com/dobavit-kompaniyu/index.md): заявка на включение и исправление данных.
+- [Правовая информация](https://rejting-kompanij-po-auditu-bezopasnosti.com/pravovaya-informaciya/index.md): персональные данные, условия использования, cookies.

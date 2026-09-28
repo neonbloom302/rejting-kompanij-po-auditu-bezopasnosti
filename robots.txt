@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /_source/
+Disallow: /_tools/
+Disallow: /content/
+Disallow: /components/
+Disallow: /preview.html
+
+Sitemap: https://rejting-kompanij-po-auditu-bezopasnosti.com/sitemap.xml

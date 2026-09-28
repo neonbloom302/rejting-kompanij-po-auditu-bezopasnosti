@@ -1,0 +1,191 @@
+#!/usr/bin/env bash
+# Assembles all pages from components/ + content/ into */index.html
+# Usage: bash build.sh
+set -euo pipefail
+cd "$(dirname "$0")"
+
+DOMAIN="https://rejting-kompanij-po-auditu-bezopasnosti.com"
+HEADER="components/header.html"
+FOOTER="components/footer.html"
+TMP_DIR="$(mktemp -d)"
+trap 'rm -rf "$TMP_DIR"' EXIT
+
+# build_page OUT TITLE DESCRIPTION PATH OG_TITLE OG_DESC CONTENT ACTIVE_NAV DEPTH CSS
+build_page() {
+  local OUT="$1" TITLE="$2" DESC="$3" PAGE_PATH="$4" OG_TITLE="$5" OG_DESC="$6"
+  local CONTENT="$7" ACTIVE_NAV="$8" DEPTH="$9" CSS="${10}"
+  local NAME; NAME="$(basename "$CONTENT" .html)"
+  local BASE="" ROOT_HREF="./"
+  if [ "$DEPTH" -gt 0 ]; then
+    BASE="$(printf '../%.0s' $(seq 1 "$DEPTH"))"
+    ROOT_HREF="$BASE"
+  fi
+  local CANONICAL="${DOMAIN}${PAGE_PATH}"
+  local TMP_HEADER="$TMP_DIR/header.html" TMP_FOOTER="$TMP_DIR/footer.html" TMP_CONTENT="$TMP_DIR/content.html"
+
+  sed \
+    -e "s|href=\"$ACTIVE_NAV\" data-nav|href=\"$ACTIVE_NAV\" class=\"active\" aria-current=\"page\" data-nav|g" \
+    -e "s|href=\"/\"|href=\"${ROOT_HREF}\"|g" \
+    -e "s|href=\"/\([^\"]*\)\"|href=\"${BASE}\1\"|g" \
+    -e "s|src=\"/\([^\"]*\)\"|src=\"${BASE}\1\"|g" \
+    "$HEADER" > "$TMP_HEADER"
+
+  for pair in "$FOOTER:$TMP_FOOTER" "$CONTENT:$TMP_CONTENT"; do
+    sed \
+      -e "s|href=\"/\"|href=\"${ROOT_HREF}\"|g" \
+      -e "s|href=\"/\([^\"]*\)\"|href=\"${BASE}\1\"|g" \
+      -e "s|src=\"/\([^\"]*\)\"|src=\"${BASE}\1\"|g" \
+      "${pair%%:*}" > "${pair##*:}"
+  done
+
+  mkdir -p "$(dirname "$OUT")"
+  {
+    echo '<!DOCTYPE html>'
+    echo '<html lang="ru">'
+    echo '<head>'
+    echo '<meta charset="utf-8">'
+    echo '<meta name="viewport" content="width=device-width, initial-scale=1">'
+    echo "<title>${TITLE}</title>"
+    echo "<meta name=\"description\" content=\"${DESC}\">"
+    echo "<link rel=\"canonical\" href=\"${CANONICAL}\">"
+    echo '<meta name="robots" content="index, follow">'
+    echo '<meta property="og:type" content="article">'
+    echo '<meta property="og:locale" content="ru_RU">'
+    echo '<meta property="og:site_name" content="Рейтинг аудиторов ИБ">'
+    echo "<meta property=\"og:title\" content=\"${OG_TITLE}\">"
+    echo "<meta property=\"og:description\" content=\"${OG_DESC}\">"
+    echo "<meta property=\"og:url\" content=\"${CANONICAL}\">"
+    echo "<meta property=\"og:image\" content=\"${DOMAIN}/images/og-cover.jpg\">"
+    echo '<meta name="twitter:card" content="summary_large_image">'
+    echo '<meta name="theme-color" content="#F3F3F5">'
+    echo "<link rel=\"icon\" href=\"${BASE}favicon.svg\" type=\"image/svg+xml\">"
+    echo "<link rel=\"icon\" href=\"${BASE}favicon.ico\" sizes=\"32x32\">"
+    echo "<link rel=\"apple-touch-icon\" href=\"${BASE}apple-touch-icon.png\">"
+    echo "<link rel=\"alternate\" type=\"text/markdown\" href=\"index.md\">"
+    echo '<link rel="preconnect" href="https://fonts.googleapis.com">'
+    echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+    echo '<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Manrope:wght@600;700&display=swap" rel="stylesheet">'
+    echo "<link rel=\"stylesheet\" href=\"${BASE}css/global.css\">"
+    echo "<link rel=\"stylesheet\" href=\"${BASE}css/${CSS}\">"
+    echo '<script type="application/ld+json">'
+    cat "content/schema/${NAME}.json"
+    echo '</script>'
+    echo '</head>'
+    echo '<body>'
+    cat "$TMP_HEADER"
+    echo '<main id="main">'
+    cat "$TMP_CONTENT"
+    echo '</main>'
+    cat "$TMP_FOOTER"
+    echo '</body>'
+    echo '</html>'
+  } > "$OUT"
+
+  # Markdown version next to HTML (for llms.txt)
+  cp "content/md/${NAME}.md" "$(dirname "$OUT")/index.md"
+  echo "built $OUT"
+}
+
+build_page "index.html" \
+  "Аудит безопасности 2026: сравнение 8 компаний и критерии" \
+  "Сравнение 8 компаний по аудиту информационной безопасности: лицензии ФСТЭК, виды аудита, сроки и состав отчёта. Критерии выбора и методология рейтинга." \
+  "/" \
+  "Аудит безопасности: рейтинг компаний в России 2026" \
+  "8 компаний по аудиту ИБ: лицензии ФСТЭК, виды аудита, публичные исследования и цены. Аффилированность раскрыта." \
+  "content/main-ranking.html" "/" 0 "ranking.css"
+
+build_page "chto-takoe-audit-informacionnoj-bezopasnosti/index.html" \
+  "Аудит информационной безопасности: что это и зачем нужен" \
+  "Что такое аудит ИБ: объекты и критерии проверки, технический и организационный аудит, отличия от пентеста, Red Teaming и аттестации." \
+  "/chto-takoe-audit-informacionnoj-bezopasnosti/" \
+  "Что такое аудит информационной безопасности" \
+  "Объекты и критерии проверки, технический и организационный аудит, отличия от пентеста и Red Teaming." \
+  "content/chto-takoe-audit.html" "/chto-takoe-audit-informacionnoj-bezopasnosti/" 1 "article.css"
+
+build_page "vidy-audita-bezopasnosti/index.html" \
+  "Виды аудита ИБ: сравнение по глубине и срокам" \
+  "Внутренний и внешний аудит ИБ, инструментальная проверка, пентест, Red Teaming: чем отличаются, сколько длятся и какой вид выбрать под задачу." \
+  "/vidy-audita-bezopasnosti/" \
+  "Виды аудита безопасности: сравнение" \
+  "Внутренний и внешний аудит, инструментальная проверка, пентест и Red Teaming по глубине, срокам и цене." \
+  "content/vidy-audita.html" "/vidy-audita-bezopasnosti/" 1 "article.css"
+
+build_page "kak-provesti-audit-informacionnoj-bezopasnosti/index.html" \
+  "Проведение аудита ИБ: 5 этапов, подготовка и отчёт" \
+  "Проведение аудита информационной безопасности по шагам: подготовка и документы, 5 этапов, сроки, состав отчёта и ретест после устранения уязвимостей." \
+  "/kak-provesti-audit-informacionnoj-bezopasnosti/" \
+  "Как провести аудит информационной безопасности" \
+  "Подготовка, 5 этапов, сроки, состав отчёта и ретест." \
+  "content/kak-provesti-audit.html" "/kak-provesti-audit-informacionnoj-bezopasnosti/" 1 "article.css"
+
+build_page "kak-vybrat-kompaniyu-dlya-audita/index.html" \
+  "Как выбрать подрядчика для аудита ИБ: 6 критериев" \
+  "Как проверить компанию для аудита ИБ: лицензия ФСТЭК в реестре, публичные исследования, образец отчёта, вопросы подрядчику и признаки формальной проверки." \
+  "/kak-vybrat-kompaniyu-dlya-audita/" \
+  "Как выбрать компанию для аудита ИБ" \
+  "6 критериев, проверка лицензии в реестре ФСТЭК и 8 вопросов подрядчику до договора." \
+  "content/kak-vybrat-kompaniyu.html" "/kak-vybrat-kompaniyu-dlya-audita/" 1 "article.css"
+
+build_page "stoimost-audita-ib/index.html" \
+  "Пентест и аудит ИБ: цена в 2026 году по прайсам" \
+  "Сколько стоит аудит ИБ и пентест: опубликованные цены компаний рынка, от чего зависит стоимость, что входит в смету и признаки заниженной цены." \
+  "/stoimost-audita-ib/" \
+  "Стоимость аудита ИБ и пентеста в 2026 году" \
+  "Опубликованные цены RTM Group, РАД КОП и SecurityLab.Pro, факторы стоимости и проверка сметы." \
+  "content/stoimost-audita.html" "/stoimost-audita-ib/" 1 "article.css"
+
+build_page "metodologiya/index.html" \
+  "Методология рейтинга: критерии, баллы и источники данных" \
+  "Как составлен рейтинг компаний по аудиту безопасности: 6 критериев, шкала баллов, источники данных, раскрытие аффилированности и журнал изменений." \
+  "/metodologiya/" \
+  "Методология рейтинга компаний по аудиту безопасности" \
+  "6 критериев, 100 баллов, только открытые источники и журнал изменений." \
+  "content/metodologiya.html" "/metodologiya/" 1 "article.css"
+
+build_page "redakciya/index.html" \
+  "Редакция рейтинга аудиторов ИБ: кто проверяет данные" \
+  "Кто ведёт рейтинг компаний по аудиту безопасности, как редакция проверяет данные, какие статьи подготовила и как сайт связан с Paranoid Security." \
+  "/redakciya/" \
+  "Редакция рейтинга компаний по аудиту безопасности" \
+  "Как редакция собирает и проверяет данные о компаниях рейтинга." \
+  "content/redakciya.html" "/redakciya/" 1 "article.css"
+
+build_page "dobavit-kompaniyu/index.html" \
+  "Добавить компанию в рейтинг аудиторов ИБ: заявка" \
+  "Как компании по аудиту информационной безопасности попасть в рейтинг или исправить данные: какие сведения нужны, как идёт оценка, форма заявки и контакты." \
+  "/dobavit-kompaniyu/" \
+  "Добавить компанию в рейтинг" \
+  "Заявка на включение в рейтинг и исправление данных о компании." \
+  "content/dobavit-kompaniyu.html" "/dobavit-kompaniyu/" 1 "article.css"
+
+build_page "pravovaya-informaciya/index.html" \
+  "Правовая информация: данные, условия и cookies" \
+  "Политика обработки персональных данных, условия использования рейтинга, cookies и раскрытие аффилированности сайта." \
+  "/pravovaya-informaciya/" \
+  "Правовая информация" \
+  "Персональные данные, условия использования, cookies и раскрытие аффилированности." \
+  "content/pravovaya-informaciya.html" "/pravovaya-informaciya/" 1 "article.css"
+
+# robots.txt, sitemap.xml
+PATHS="/ /chto-takoe-audit-informacionnoj-bezopasnosti/ /vidy-audita-bezopasnosti/ /kak-provesti-audit-informacionnoj-bezopasnosti/ /kak-vybrat-kompaniyu-dlya-audita/ /stoimost-audita-ib/ /metodologiya/ /redakciya/ /dobavit-kompaniyu/ /pravovaya-informaciya/"
+{
+  echo 'User-agent: *'
+  echo 'Allow: /'
+  echo 'Disallow: /_source/'
+  echo 'Disallow: /_tools/'
+  echo 'Disallow: /content/'
+  echo 'Disallow: /components/'
+  echo 'Disallow: /preview.html'
+  echo ''
+  echo "Sitemap: ${DOMAIN}/sitemap.xml"
+} > robots.txt
+{
+  echo '<?xml version="1.0" encoding="UTF-8"?>'
+  echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+  for p in $PATHS; do
+    echo "  <url><loc>${DOMAIN}${p}</loc><lastmod>2026-09-29</lastmod></url>"
+  done
+  echo '</urlset>'
+} > sitemap.xml
+touch .nojekyll
+echo "done"
