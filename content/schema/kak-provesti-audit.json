@@ -6,8 +6,18 @@
       "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/#org",
       "name": "Редакция рейтинга",
       "url": "https://rejting-kompanij-po-auditu-bezopasnosti.com/redakciya/",
-      "logo": "https://rejting-kompanij-po-auditu-bezopasnosti.com/images/logo.svg",
-      "email": "redakciya@rejting-kompanij-po-auditu-bezopasnosti.com"
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/#logo",
+        "url": "https://rejting-kompanij-po-auditu-bezopasnosti.com/images/logo-512.png",
+        "width": 512,
+        "height": 512,
+        "caption": "Рейтинг аудиторов ИБ"
+      },
+      "email": "redakciya@rejting-kompanij-po-auditu-bezopasnosti.com",
+      "image": {
+        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/#logo"
+      }
     },
     {
       "@type": "WebSite",
@@ -30,6 +40,15 @@
       "dateModified": "2026-09-29",
       "isPartOf": {
         "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/#site"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-provesti-audit-informacionnoj-bezopasnosti/#primaryimage"
+      },
+      "image": {
+        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-provesti-audit-informacionnoj-bezopasnosti/#primaryimage"
+      },
+      "breadcrumb": {
+        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-provesti-audit-informacionnoj-bezopasnosti/#breadcrumb"
       }
     },
     {
@@ -48,7 +67,14 @@
       "mainEntityOfPage": {
         "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-provesti-audit-informacionnoj-bezopasnosti/#webpage"
       },
-      "image": "https://rejting-kompanij-po-auditu-bezopasnosti.com/images/og-cover.jpg"
+      "image": [
+        "https://rejting-kompanij-po-auditu-bezopasnosti.com/images/covers/kak-provesti-audit.jpg",
+        "https://rejting-kompanij-po-auditu-bezopasnosti.com/images/og-cover.jpg"
+      ],
+      "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-provesti-audit-informacionnoj-bezopasnosti/#article",
+      "isPartOf": {
+        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-provesti-audit-informacionnoj-bezopasnosti/#webpage"
+      }
     },
     {
       "@type": "BreadcrumbList",
@@ -65,7 +91,8 @@
           "name": "Как провести аудит",
           "item": "https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-provesti-audit-informacionnoj-bezopasnosti/"
         }
-      ]
+      ],
+      "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-provesti-audit-informacionnoj-bezopasnosti/#breadcrumb"
     },
     {
       "@type": "FAQPage",
@@ -95,6 +122,13 @@
           }
         }
       ]
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://rejting-kompanij-po-auditu-bezopasnosti.com/images/covers/kak-provesti-audit.jpg",
+      "width": 1200,
+      "height": 480,
+      "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-provesti-audit-informacionnoj-bezopasnosti/#primaryimage"
     }
   ]
 }
