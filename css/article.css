@@ -2,7 +2,7 @@
    article.css — inner pages: cover image, schemes, form, author card
    ========================================================================== */
 
-.cover { position: relative; overflow: hidden; margin-top: var(--s-4); border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface-2); box-shadow: var(--shadow-1); }
+.cover { position: relative; overflow: hidden; margin: 0; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface-2); box-shadow: var(--shadow-1); }
 .cover img { width: 100%; aspect-ratio: 1200 / 480; object-fit: cover; display: block; }
 .cover::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(14, 14, 18, .06), rgba(14, 14, 18, 0) 40%); pointer-events: none; }
 
