@@ -436,3 +436,7 @@ label.pill-tabs__item:active { transform: scale(.96); }
   .card__head .pill-tabs__item { text-align: center; border-radius: 10px; padding: 6px 8px; }
   .byline__sep:first-of-type { display: none; }
 }
+
+.site-footer__note { color: var(--muted); }
+.site-footer__note a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+.site-footer__note a:hover { color: var(--text); }

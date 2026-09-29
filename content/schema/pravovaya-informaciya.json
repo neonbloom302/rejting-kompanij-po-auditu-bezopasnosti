@@ -6,18 +6,8 @@
       "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/#org",
       "name": "Редакция рейтинга",
       "url": "https://rejting-kompanij-po-auditu-bezopasnosti.com/redakciya/",
-      "logo": {
-        "@type": "ImageObject",
-        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/#logo",
-        "url": "https://rejting-kompanij-po-auditu-bezopasnosti.com/images/logo-512.png",
-        "width": 512,
-        "height": 512,
-        "caption": "Рейтинг аудиторов ИБ"
-      },
-      "email": "redakciya@rejting-kompanij-po-auditu-bezopasnosti.com",
-      "image": {
-        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/#logo"
-      }
+      "logo": "https://rejting-kompanij-po-auditu-bezopasnosti.com/images/logo.svg",
+      "email": "redakciya@rejting-kompanij-po-auditu-bezopasnosti.com"
     },
     {
       "@type": "WebSite",
@@ -40,15 +30,6 @@
       "dateModified": "2026-09-29",
       "isPartOf": {
         "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/#site"
-      },
-      "primaryImageOfPage": {
-        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/pravovaya-informaciya/#primaryimage"
-      },
-      "image": {
-        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/pravovaya-informaciya/#primaryimage"
-      },
-      "breadcrumb": {
-        "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/pravovaya-informaciya/#breadcrumb"
       }
     },
     {
@@ -66,15 +47,7 @@
           "name": "Правовая информация",
           "item": "https://rejting-kompanij-po-auditu-bezopasnosti.com/pravovaya-informaciya/"
         }
-      ],
-      "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/pravovaya-informaciya/#breadcrumb"
-    },
-    {
-      "@type": "ImageObject",
-      "url": "https://rejting-kompanij-po-auditu-bezopasnosti.com/images/og-cover.jpg",
-      "width": 1200,
-      "height": 630,
-      "@id": "https://rejting-kompanij-po-auditu-bezopasnosti.com/pravovaya-informaciya/#primaryimage"
+      ]
     }
   ]
 }
