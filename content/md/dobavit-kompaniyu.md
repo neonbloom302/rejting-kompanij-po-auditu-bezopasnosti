@@ -32,6 +32,3 @@
 - Поле «Ссылки на подтверждения» принимает одну или несколько ссылок.
 - Поле «Email для ответа» принимает адрес для ответа редакции.
 - Чекбокс подтверждает согласие на обработку данных по [правовой информации](https://rejting-kompanij-po-auditu-bezopasnosti.com/pravovaya-informaciya/#konfidencialnost).
-
----
-*Сайт аффилирован с Paranoid Security, одной из компаний рейтинга. Подробнее на странице [«Редакция»](https://rejting-kompanij-po-auditu-bezopasnosti.com/redakciya/).*

@@ -91,6 +91,3 @@ CVSS (Common Vulnerability Scoring System) оценивает критичнос
 - [Спецификация CVSS от FIRST](https://www.first.org/cvss/) задаёт шкалу критичности уязвимостей.
 - [RTM Group](https://rtmtech.ru/services/pentest/) публикует сроки и цены пентеста, данные проверены 29.09.2026.
 - [SecurityLab.Pro](https://securitylab.pro/hacking/pentest/) публикует тарифы и сроки пентеста, данные проверены 29.09.2026.
-
----
-*Сайт аффилирован с Paranoid Security, одной из компаний рейтинга. Подробнее на странице [«Редакция»](https://rejting-kompanij-po-auditu-bezopasnosti.com/redakciya/).*

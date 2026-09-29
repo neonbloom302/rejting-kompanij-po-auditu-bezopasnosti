@@ -95,6 +95,3 @@ Red Teaming проверяет не отдельные уязвимости, а 
 - [Спецификация CVSS от FIRST](https://www.first.org/cvss/) задаёт шкалу критичности уязвимостей.
 - [OWASP](https://owasp.org) публикует открытые руководства по безопасности приложений.
 - [PTES](http://www.pentest-standard.org) (Penetration Testing Execution Standard) описывает этапы тестирования на проникновение.
-
----
-*Сайт аффилирован с Paranoid Security, одной из компаний рейтинга. Подробнее на странице [«Редакция»](https://rejting-kompanij-po-auditu-bezopasnosti.com/redakciya/).*

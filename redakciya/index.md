@@ -32,6 +32,3 @@
 ## Связь с редакцией
 
 Исправления данных и заявки компаний принимаются на странице [«Добавить компанию в рейтинг»](https://rejting-kompanij-po-auditu-bezopasnosti.com/dobavit-kompaniyu/).
-
----
-*Сайт аффилирован с Paranoid Security, одной из компаний рейтинга. Подробнее на странице [«Редакция»](https://rejting-kompanij-po-auditu-bezopasnosti.com/redakciya/).*

@@ -76,6 +76,3 @@ Red Teaming у RTM Group стоит от 9 900 000 рублей. Цена в 49 
 - [РАД КОП](https://radcop.online/informacionnaya-bezopasnost/cybersecurity/testirovanie-na-proniknovenie-pentest/) публикует цены на тестирование на проникновение, данные проверены 29.09.2026.
 - [SecurityLab.Pro](https://securitylab.pro/hacking/pentest/) публикует тарифы и сроки пентеста, данные проверены 29.09.2026.
 - [Астрал Безопасность](https://is.astral.ru/services/zashchita-informatsii/audit-informatsionnoy-bezopasnosti/) публикует диапазон цен организационного аудита, данные проверены 25.09.2026.
-
----
-*Сайт аффилирован с Paranoid Security, одной из компаний рейтинга. Подробнее на странице [«Редакция»](https://rejting-kompanij-po-auditu-bezopasnosti.com/redakciya/).*
