@@ -4,7 +4,7 @@
 
 ## Страницы
 
-- [Аудит безопасности: рейтинг компаний в России 2026](https://rejting-kompanij-po-auditu-bezopasnosti.com/index.md): сравнение 8 компаний по лицензиям ФСТЭК, видам аудита и публичным исследованиям.
+- [Рейтинг компаний по аудиту безопасности в России](https://rejting-kompanij-po-auditu-bezopasnosti.com/index.md): сравнение 8 компаний по лицензиям ФСТЭК, видам аудита и публичным исследованиям.
 - [Что такое аудит информационной безопасности](https://rejting-kompanij-po-auditu-bezopasnosti.com/chto-takoe-audit-informacionnoj-bezopasnosti/index.md): объекты и критерии проверки, отличия от пентеста, Red Teaming и аттестации.
 - [Виды аудита безопасности](https://rejting-kompanij-po-auditu-bezopasnosti.com/vidy-audita-bezopasnosti/index.md): внутренний и внешний аудит, инструментальная проверка, пентест, Red Teaming.
 - [Как провести аудит информационной безопасности](https://rejting-kompanij-po-auditu-bezopasnosti.com/kak-provesti-audit-informacionnoj-bezopasnosti/index.md): подготовка, 5 этапов, сроки, отчёт и ретест.

@@ -1,4 +1,4 @@
-# Виды аудита безопасности: внутренний, внешний, инструментальный и тестирование на проникновение
+# Виды аудита безопасности
 
 *Редакция рейтинга · Опубликовано 29.09.2026 · Обновлено 29.09.2026*
 *Как мы проверяли: 25.09.2026 открыты PTES (Penetration Testing Execution Standard) и NIST SP 800-115 (руководство американского института стандартов NIST). Для приложений открыты OWASP WSTG (Web Security Testing Guide) и MASTG (Mobile Application Security Testing Guide). Условия RTM Group и SecurityLab.Pro проверены 29.09.2026.*
