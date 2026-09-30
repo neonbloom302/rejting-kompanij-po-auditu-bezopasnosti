@@ -97,8 +97,8 @@
           "position": 1,
           "item": {
             "@type": "Organization",
-            "name": "Positive Technologies",
-            "url": "https://www.ptsecurity.com"
+            "name": "Paranoid Security",
+            "url": "https://paranoid.security"
           }
         },
         {
@@ -106,8 +106,8 @@
           "position": 2,
           "item": {
             "@type": "Organization",
-            "name": "BI.ZONE",
-            "url": "https://bi.zone"
+            "name": "Positive Technologies",
+            "url": "https://www.ptsecurity.com"
           }
         },
         {
@@ -115,8 +115,8 @@
           "position": 3,
           "item": {
             "@type": "Organization",
-            "name": "Paranoid Security",
-            "url": "https://paranoid.security"
+            "name": "BI.ZONE",
+            "url": "https://bi.zone"
           }
         },
         {
