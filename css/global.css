@@ -420,6 +420,13 @@ label.pill-tabs__item:hover { color: var(--text); background: rgba(255, 255, 255
 label.pill-tabs__item:active { transform: scale(.96); }
 .pill-tabs__input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
 .pill-tabs__input:focus-visible + .pill-tabs__item { box-shadow: var(--focus); }
+
+/* Переключение источника цен на графике рынка. Без :has() остаётся вкладка «Все». */
+.market-card [data-src]:not([data-src="all"]) { display: none; }
+.market-card:has(#mkt-rtm:checked) [data-src="rtm"],
+.market-card:has(#mkt-radcop:checked) [data-src="radcop"],
+.market-card:has(#mkt-sl:checked) [data-src="sl"] { display: block; }
+.market-card:has(.pill-tabs__input:checked:not(#mkt-all)) [data-src="all"] { display: none; }
 /* market chart switch: one figure per company, CSS-only */
 .mk-chart { display: none; }
 .market-card:has(#mkf-all:checked) .mk-chart[data-set="all"],
